@@ -1,2 +1,2 @@
-export * from "./arrayUtils.ts";
+export * from "./arrayUtils";
 

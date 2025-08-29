@@ -10,48 +10,62 @@ Designed to be **minimal**, **typed**, and **framework-agnostic** — a tiny alt
 ### npm
 
 ```bash
-npm install array-kit
+npm i array-kit-lite
 ```
 
 ### pnpm
 
 ```bash
-pnpm add array-kit
+pnpm add array-kit-lite
 ```
 
 ### yarn
 
 ```bash
-yarn add array-kit
+yarn add array-kit-lite
 ```
 
 ### bun
 
 ```bash
-bun add array-kit
+bun add array-kit-lite
+# or
+bunx jsr add @kingtechnologies/array-kit
 ```
 
 ### JSR (Deno / Modern Node)
 
 ```bash
-deno add jsr:@your-username/array-kit
+deno add jsr:@kingtechnologies/array-kit
+
+```
+
+```ts
+// Import directly with a jsr specifier
+import * as array_kit from "jsr:@kingtechnologies/array-kit";
 ```
 
 ## ✨ Features
 
-✅ TypeScript support out of the box
-✅ Works in Node.js, Deno, and modern browsers
-✅ Tiny footprint — only the essentials
-✅ Tree-shakeable
+- ✅ TypeScript support out of the box
+- ✅ Works in Node.js, Deno, and modern browsers
+- ✅ Tiny footprint — only the essentials
+- ✅ Tree-shakeable
 
 ### Usage
 
 ```ts
 // ESM / TypeScript
-import { isEmpty, isNotEmpty, first, last, unique } from "array-kit";
+import { first, isEmpty, isNotEmpty, last, unique } from "array-kit-lite";
+```
 
-// CommonJS
-const { isEmpty, isNotEmpty } = require("array-kit");
+<!-- or -->
+
+```ts
+import { isEmpty } from "@kingtechnologies/array-kit";
+
+console.log(isEmpty([])); // true
+console.log(isNotEmpty([1, 2, 3])); // true
 ```
 
 ### Example

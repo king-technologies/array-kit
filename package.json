@@ -1,5 +1,5 @@
 {
-  "name": "array-kit",
+  "name": "array-kit-lite",
   "version": "0.1.1",
   "description": "Lightweight array utilities (isEmpty, isNotEmpty, etc.)",
   "main": "dist/index.js",
