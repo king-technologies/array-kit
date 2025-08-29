@@ -1,0 +1,27 @@
+{
+  "name": "array-kit",
+  "version": "1.0.0",
+  "description": "Lightweight array utilities (isEmpty, isNotEmpty, etc.)",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "array",
+    "utils",
+    "helpers",
+    "isEmpty"
+  ],
+  "author": "Rohit Jain",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}
