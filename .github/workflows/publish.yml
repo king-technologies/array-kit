@@ -1,15 +1,16 @@
-name: Publish to JSR
+name: Publish to JSR + GitHub Release
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - main
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      id-token: write
+      contents: write # needed to create release & tag
+      id-token: write # needed for JSR provenance
 
     steps:
       - name: Checkout repository
@@ -20,5 +21,18 @@ jobs:
         with:
           deno-version: v2.x
 
+      - name: Get version from jsr.json
+        id: get_version
+        run: |
+          VERSION=$(jq -r .version jsr.json)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
       - name: Publish package to JSR
         run: deno publish
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.get_version.outputs.version }}
+          name: Release v${{ steps.get_version.outputs.version }}
+          body: "Published @kingtechnologies/array-kit v${{ steps.get_version.outputs.version }} to JSR"
